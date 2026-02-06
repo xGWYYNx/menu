@@ -5,15 +5,25 @@ import funciones from './funciones.js';
 let opcion;
 
 do { 
+    console.log('                              ');
+    console.log('                              ');
+    console.log('                              ');
     funciones.menu();
+    console.log('                              ');
+    console.log('                              ');
+    console.log('                              ');
+
     opcion = readline.questionInt('Digite la opcion deseada: '.red);
+
+    console.log('------------------------------');
+    console.log('                              ');
 
     switch (opcion) {
         case 1:
             console.log('Elegiste SUMAR'.green);
             break;
         case 2:
-            console.log('Elegiste RESTAR'.yellow);
+            console.log('Elegiste RESTAR'.gray);
             break;
         case 3:
             console.log('Elegiste MULTIPLICAR'.blue);
@@ -27,15 +37,24 @@ do {
         default:
             console.log('Opción no válida'.bgRed);
     }
+    
+    console.log('                              ');
+    console.log('------------------------------');
+    console.log('                              ');
 
     
     if (opcion >= 1 && opcion <= 4) { //Validar que la opcion ingresada este entre 1 y 4, si es asi, pedir los numeros
 
         const num1 = readline.questionInt('Digite el primer numero: '.cyan);
         const num2 = readline.questionInt('Digite el segundo numero: '.cyan);
+        console.log('------------------------------');
+        console.log('                              ');
+        console.log(`Numeros ingresados: ${num1} y ${num2}`.green);
+        console.log('                              ');
+        console.log('------------------------------');
+        
+        
 
-        console.log(`Numero 1: ${num1}`);
-        console.log(`Numero 2: ${num2}`);
         switch (opcion) {
             case 1:
                 console.log(`Resultado de la suma: ${funciones.sumar(num1, num2)}`.cyan);
