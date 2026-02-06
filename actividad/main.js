@@ -2,39 +2,62 @@ import colors from 'colors';
 import readline from 'readline-sync';
 import funciones from './funciones.js';
 
-funciones.menu();
+let opcion;
 
-const opcion = readline.questionInt('Digite la opcion deseada: '.red);
+do { 
+    funciones.menu();
+    opcion = readline.questionInt('Digite la opcion deseada: '.red);
 
-let num1 = funciones.numerosAleatorios();
-let num2 = funciones.numerosAleatorios();
+    switch (opcion) {
+        case 1:
+            console.log('Elegiste SUMAR'.green);
+            break;
+        case 2:
+            console.log('Elegiste RESTAR'.yellow);
+            break;
+        case 3:
+            console.log('Elegiste MULTIPLICAR'.blue);
+            break;
+        case 4:
+            console.log('Elegiste DIVIDIR'.cyan);
+            break;
+        case 5:
+            console.log('Saliendo del programa...'.red);
+            break;
+        default:
+            console.log('Opción no válida'.bgRed);
+    }
 
-console.log(`Numero 1: ${num1}`);
-console.log(`Numero 2: ${num2}`);
+    
+    if (opcion >= 1 && opcion <= 4) { //Validar que la opcion ingresada este entre 1 y 4, si es asi, pedir los numeros
 
-switch (opcion) {
-    case 1:
-        console.log(`Resultado suma: ${funciones.sumar(num1, num2)}`.cyan);
-    break;
+        const num1 = readline.questionInt('Digite el primer numero: '.cyan);
+        const num2 = readline.questionInt('Digite el segundo numero: '.cyan);
 
-    case 2:
-        console.log(`Resultado resta: ${funciones.restar(num1, num2)}`.cyan);
-    break;
+        console.log(`Numero 1: ${num1}`);
+        console.log(`Numero 2: ${num2}`);
+        switch (opcion) {
+            case 1:
+                console.log(`Resultado de la suma: ${funciones.sumar(num1, num2)}`.cyan);
+                break;
+            case 2:
+                console.log(`Resultado de la resta: ${funciones.restar(num1, num2)}`.cyan);
+                break;
+            case 3:
+                console.log(`Resultado de la multiplicacion: ${funciones.multiplicar(num1, num2)}`.cyan);
+                break;
+            case 4:
+                if (num1 === 0 || num2 === 0) {
+                    console.log('Numero Invalido, no se puede dividir por 0');
+                    
+                }else{
+                    console.log(`Resultado de la division: ${funciones.dividir(num1, num2)}`.cyan);
+                }
+                break;
+        }
+    }
 
-    case 3:
-        console.log(`Resultado multiplicacion: ${funciones.multiplicar(num1, num2)}`.cyan);
-    break;
+} while (opcion !== 5);
 
-    case 4:
-        console.log(`Resultado division: ${funciones.dividir(num1, num2)}`.cyan);
-    break;
-
-    case 5:
-        console.log('Saliendo del programa...'.g);
-    break;
-
-    default:
-    console.log('Opcion invalida'.red);
-}
 
 

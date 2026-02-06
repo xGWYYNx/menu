@@ -1,17 +1,17 @@
 {
-  "name": "actividad",
+  "name": "actividadmenupowershell",
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Dilan Mateo Peñaloza",
   "license": "ISC",
-  "description": "",
+  "description": "Menu de operaciones matematicas basicas",
   "dependencies": {
     "colors": "^1.4.0",
-    "readline-sync": "^1.4.10"
+    "readline-sync": "^1.4.10",
 	"type": "module"
   }
 }

@@ -24,7 +24,7 @@ const multiplicar = (num1, num2) => {
 
 const dividir = (num1, num2) => {
     if (typeof num1 === 'number' && typeof num2 === 'number') {
-        if (num2 === 0) {
+        if (num2 === 0 || num1 === 0) {
             return 'Error: no se puede dividir por cero';
         }
         return num1 / num2;
@@ -34,15 +34,20 @@ const dividir = (num1, num2) => {
 };
 
 const menu = () =>{
-    console.log('             ','                               '.bgBlue);
-    console.log('             ','*            MENU             *'.bgBlue);
-    console.log('             ','*******************************'.bgBlue);
-    console.log('             ','* 1.Sumar dos números          '.bgBlue);
-    console.log('             ','* 2.Restar dos números         '.bgBlue);
-    console.log('             ','* 3.Multiplicar dos números    '.bgBlue);
-    console.log('             ','* 4.Dividir dos números        '.bgBlue);
-    console.log('             ','* 3.Salir                      '.bgBlue);
-    console.log('             ','*******************************');
+    console.log('             ','                                       '.bgGreen);
+    console.log('             ','  '.bgGreen,'                                 ','  '.bgGreen,'            ',);
+    console.log('             ','  '.bgGreen,'              MENU               ','  '.bgGreen,'            ',);
+    console.log('             ','  '.bgGreen,'                                 ','  '.bgGreen,'            ',);
+    console.log('             ','                                       '.bgGreen);
+    console.log('             ','  '.bgGreen,'                                 ','  '.bgGreen,'            ',);
+    console.log('             ','  '.bgGreen,'     1.Sumar dos números         ','  '.bgGreen,'            ',);
+    console.log('             ','  '.bgGreen,'     2.Restar dos números        ','  '.bgGreen,'            ',);
+    console.log('             ','  '.bgGreen,'     3.Multiplicar dos números   ','  '.bgGreen,'            ',);
+    console.log('             ','  '.bgGreen,'     4.Dividir dos números       ','  '.bgGreen,'            ',);
+    console.log('             ','  '.bgGreen,'     5.Salir                     ','  '.bgGreen,'            ',);
+    console.log('             ','  '.bgGreen,'                                 ','  '.bgGreen,'            ',);
+    console.log('             ','                                       '.bgGreen);
+    
 }
 
 const numerosAleatorios = () =>{
