@@ -1,24 +1,39 @@
 import colors from 'colors';
 import readline from 'readline-sync';
 import funciones from './funciones.js';
+import menuOperaciones from './menu.js';
 
-let opcion;
+let opcionesMenuOperaciones;
+let entrada;
 
 do { 
+    
     console.log('                              ');
     console.log('                              ');
     console.log('                              ');
-    funciones.menu();
+    menuOperaciones.Menu();
     console.log('                              ');
     console.log('                              ');
     console.log('                              ');
+    
+    do {        
+        entrada = readline.question('Digite la opcion deseada: '.red);
+        opcionesMenuOperaciones = Number(entrada);
+        if (isNaN(opcionesMenuOperaciones)) {
+            console.log("Entrada invalida, por favor digite un numero entero entre 1 y 5");
+            opcionesMenuOperaciones = 0;
+        }else if (opcionesMenuOperaciones % 1 !== 0) {
+            console.log("No se permiten numeros decimales");
+            opcionesMenuOperaciones = 0;
+        }
+    } while (opcionesMenuOperaciones === 0);
 
-    opcion = readline.questionInt('Digite la opcion deseada: '.red);
+
 
     console.log('------------------------------');
     console.log('                              ');
 
-    switch (opcion) {
+    switch (opcionesMenuOperaciones) {
         case 1:
             console.log('Elegiste SUMAR'.green);
             break;
@@ -43,40 +58,40 @@ do {
     console.log('                              ');
 
     
-    if (opcion >= 1 && opcion <= 4) { //Validar que la opcion ingresada este entre 1 y 4, si es asi, pedir los numeros
+    if (opcionesMenuOperaciones >= 1 && opcionesMenuOperaciones <= 4) { //Validar que la opcion ingresada este entre 1 y 4, si es asi, pedir los numeros
 
-        const num1 = readline.questionInt('Digite el primer numero: '.cyan);
-        const num2 = readline.questionInt('Digite el segundo numero: '.cyan);
+        const primerEnteroDigitado = readline.questionInt('Digite el primer numero: '.cyan);
+        const segundoEnteroDigitado = readline.questionInt('Digite el segundo numero: '.cyan);
         console.log('------------------------------');
         console.log('                              ');
-        console.log(`Numeros ingresados: ${num1} y ${num2}`.green);
+        console.log(`Numeros ingresados: ${primerEnteroDigitado} y ${segundoEnteroDigitado}`.green);
         console.log('                              ');
         console.log('------------------------------');
         
         
 
-        switch (opcion) {
+        switch (opcionesMenuOperaciones) {
             case 1:
-                console.log(`Resultado de la suma: ${funciones.sumar(num1, num2)}`.cyan);
+                console.log(`Resultado de la suma: ${funciones.Sumar(primerEnteroDigitado, segundoEnteroDigitado)}`.cyan);
                 break;
             case 2:
-                console.log(`Resultado de la resta: ${funciones.restar(num1, num2)}`.cyan);
+                console.log(`Resultado de la resta: ${funciones.Restar(primerEnteroDigitado, segundoEnteroDigitado)}`.cyan);
                 break;
             case 3:
-                console.log(`Resultado de la multiplicacion: ${funciones.multiplicar(num1, num2)}`.cyan);
+                console.log(`Resultado de la multiplicacion: ${funciones.Multiplicar(primerEnteroDigitado, segundoEnteroDigitado)}`.cyan);
                 break;
             case 4:
-                if (num1 === 0 || num2 === 0) {
+                if (primerEnteroDigitado === 0 || segundoEnteroDigitado === 0) {
                     console.log('Numero Invalido, no se puede dividir por 0');
                     
                 }else{
-                    console.log(`Resultado de la division: ${funciones.dividir(num1, num2)}`.cyan);
+                    console.log(`Resultado de la division: ${funciones.Dividir(primerEnteroDigitado, segundoEnteroDigitado).toFixed(2)}`.cyan);
                 }
                 break;
         }
     }
 
-} while (opcion !== 5);
+} while (opcionesMenuOperaciones !== 5);
 
 
 
